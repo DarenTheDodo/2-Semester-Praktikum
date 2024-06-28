@@ -1,5 +1,3 @@
-//structur überdenken und passend für die zwei spieler machen.
-//treffer feld
 #include <stdio.h>
 
 
