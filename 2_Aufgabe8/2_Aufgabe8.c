@@ -102,7 +102,6 @@ int main(void) {
     //Funktions aufruf der ausgebenListe funktion und übergabe der liste
     ausgebenListe(liste);
 
-
     //Ausgabe der Frage an wo gesucht werden soll
     printf("Position eingeben: ");
 
