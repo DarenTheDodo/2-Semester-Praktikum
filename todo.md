@@ -12,7 +12,6 @@
 ## Aufgabe 5
     Addiere Komplexe zahlen nicht Betrag.
     funktion anders nennen	testfelder
-    lw anschauen ob nicht durch blurredword ersetzbar
 
 ## Aufgabe 6
     struktur überdenken und passend für die zwei spieler machen.
@@ -20,5 +19,7 @@
 
 ## Aufgabe 7
     Aufräumen und Variablen eindeutig benennen
+    lw anschauen ob nicht durch blurredword ersetzbar
+
 ## Aufgabe 8
     abfangen zu großer positions abfragen

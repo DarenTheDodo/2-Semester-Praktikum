@@ -19,13 +19,7 @@
 //Real Teil: -4.000000
 //Imaginär Teil: i-9.000000
 
-
-
-
-
-
 #include <stdio.h>
-#include <math.h>
 
 struct Komplex {
     double x;

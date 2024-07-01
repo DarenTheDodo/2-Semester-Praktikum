@@ -85,19 +85,14 @@ int fehlerAusgabe(int fehler){
 int main() {
     int bool = 1;
     while (bool == 1) {
-//        char loesungswort[255] = "";
-//        char blurredword[255] = "";
         int alter,i;
         int rateVersuche;
         int fehler = 12;
         int richtigGeraten = 0;
         char eingabe;
         int anzbuch;
-
-
         char *hilfsfeld;
         char *loesungswort;
-        char *blurredword;
 
         hilfsfeld = malloc(sizeof (char)* 100);
         printf("L\x94sungswort eingeben: ");
@@ -107,7 +102,7 @@ int main() {
         //blurredword = malloc(sizeof (char)*(strlen(hilfsfeld)+1));
         strcpy(loesungswort, hilfsfeld);
         //strcpy(blurredword,hilfsfeld);
-        free(hilfsfeld);
+        //free(hilfsfeld);
         anzbuch= strlen(loesungswort);
 
 
@@ -125,14 +120,12 @@ int main() {
 
         printf("\n");
 
-        // Set placerHolder string "____", genauso lange wie die Antwort
-        //    F---h
-        char lw[255];
+        // Set hilfswort placerHolder string "____"
 
         for (i = 0; i < anzbuch; i++) {
-            lw[i] = '_';
+            hilfsfeld[i] = '_';
         }
-        lw[anzbuch]= '\0';
+        hilfsfeld[anzbuch]= '\0';
 
 
         // Set alter
@@ -152,7 +145,7 @@ int main() {
         while (fehler != 12 && richtigGeraten != anzbuch) {
             int treffer = 0;
 
-            printf("%s\n\n", lw);
+            printf("%s\n\n", hilfsfeld);
             printf("Eingabe: ");
             scanf(" %c", &eingabe);
             eingabe = tolower(eingabe);
@@ -161,7 +154,7 @@ int main() {
             for (int i = 0; i < anzbuch; i++) {
 
                 if (loesungswort[i] == eingabe) {
-                    lw[i] = eingabe;
+                    hilfsfeld[i] = eingabe;
                     loesungswort[i] = '0';
                     treffer++;
                 }
@@ -203,7 +196,7 @@ int main() {
             printf("SIE HABEN GEWONNEN!\n");
         } else {
             printf("SIE HABEN VERLOREN!\n");
-           printf("Das Wort lautete: %s\n", blurredword);
+           printf("Das Wort lautete: %s\n", loesungswort);
         }
         printf("Dr\x81""cken sie 1 um nochmal zu spielen!\n");
         scanf("%i", &bool);
