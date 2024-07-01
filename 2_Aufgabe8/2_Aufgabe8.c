@@ -69,17 +69,23 @@ void ausgebenListe(struct Listenelement *liste) {
 void ausgebenPosition(struct Listenelement *liste, int position) {
     //Deklaration des Index
     int i = 1;
+    int j = 0;
     while (liste != NULL){
         //Falls i der übergebenen Position entspricht.
         if (i == position){
             //Ausgabe der Liste an der Stelle des Eingegeben und Übergebenen Index i
             printf("Element: %i\n", liste->wert);
+            j= 1;
 
         }
         //Gehe zum nächsten listen element.
         liste = liste->nachfolger;
         //Index erhöhen
         i++;
+    }
+    // Falls i nicht getroffen wurde bleibt j = 0 und somit wird hier ausgegeben das die stelle nicht existiert.
+    if (j==0){
+        printf("%i Position ist leer", position);
     }
 
 }
