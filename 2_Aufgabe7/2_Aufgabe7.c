@@ -99,10 +99,7 @@ int main() {
         scanf(" %s", hilfsfeld);
         fflush(stdin);
         loesungswort = malloc(sizeof (char)*(strlen(hilfsfeld)+1));
-        //blurredword = malloc(sizeof (char)*(strlen(hilfsfeld)+1));
         strcpy(loesungswort, hilfsfeld);
-        //strcpy(blurredword,hilfsfeld);
-        //free(hilfsfeld);
         anzbuch= strlen(loesungswort);
 
 
