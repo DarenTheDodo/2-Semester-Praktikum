@@ -2,7 +2,9 @@
 
 
 struct Spieler {
-    char arr[10][10];
+    char feld[10][10];
+    char trefferFeld[10][10];
+    int treffer;
 };
 
 void print_arr(char arr[10][10]) {
@@ -19,6 +21,7 @@ void print_arr(char arr[10][10]) {
         }
         printf("\n");
     }
+    printf("\n");
 
 }
 
@@ -53,6 +56,20 @@ int place_ship(char arr[10][10], int row, int col) {
     return 0;
 }
 
+int check_hit(char trefferFeld[10][10], char gegner[10][10], int row, int col) {
+    int hit;
+    if (gegner[row][col] == 'S') {
+        hit = 1;
+        printf("TREFFER!\n");
+        trefferFeld[row][col] = 'X';
+    } else {
+        hit = 0;
+        printf("Danneben\n");
+        trefferFeld[row][col] = 'O';
+    };
+    return hit;
+}
+
 int main() {
     struct Spieler spieler[2];
     int row, col, ships, spielerAnz;
@@ -67,32 +84,70 @@ int main() {
     scanf("%i", &spielerAnz);
 
 
-
-
-
     int i;
-    for (i = 0; i <= spielerAnz; i++){
-        fill_array(spieler[i].arr);
-        build_structure(spieler[i].arr);
+    for (i = 0; i <= spielerAnz; i++) {
+        fill_array(spieler[i].feld);
+        build_structure(spieler[i].feld);
+        fill_array(spieler[i].trefferFeld);
+        build_structure(spieler[i].trefferFeld);
+        spieler[i].treffer=0;
     }
     i = 0;
     while (i < ships) {
         int spielerfolge = 0;
         while (spielerfolge <= spielerAnz) {
-            printf("\nSpieler %i:\n", spielerfolge+1);
-            printf("\n Spieler %i:\n Schiff positions reihe eingeben: ", spielerfolge+1);
+
+            printf("\nSpieler %i:\n", spielerfolge + 1);
+            printf("\n Spieler %i:\n Schiff positions reihe eingeben: ", spielerfolge + 1);
             scanf("%i", &row);
 
-            printf("\n Spieler %i:\n Schiff positions Zeile eingeben: ", spielerfolge+1);
+            printf("\n Spieler %i:\n Schiff positions Zeile eingeben: ", spielerfolge + 1);
             scanf("%i", &col);
 
 
-            place_ship(spieler[spielerfolge].arr, row, col);
-            print_arr(spieler[spielerfolge].arr);
+            place_ship(spieler[spielerfolge].feld, row, col);
+            print_arr(spieler[spielerfolge].feld);
             spielerfolge++;
         }
-    i++;
-        printf("%i von %i Shiffen platziert", i,ships);
+        i++;
+        printf("%i von %i Shiffen platziert\n\n\n\n\n\n\n\n", i, ships);
     }
+
+
+    //Starte Spiele
+    while (spieler[0].treffer < ships && spieler[1].treffer < ships) {
+        int spielerfolge = 0;
+        while (spielerfolge <= spielerAnz) {
+            printf("Treffer Spieler %i\n", spielerfolge + 1);
+            print_arr(spieler[spielerfolge].trefferFeld);
+
+            printf("\nSpieler %i:\n", spielerfolge + 1);
+            printf("\n Spieler %i:\n X: ", spielerfolge + 1);
+            scanf("%i", &row);
+
+            printf("\n Spieler %i:\n Y: ", spielerfolge + 1);
+            scanf("%i", &col);
+
+            if (spielerfolge == 1) {
+                spieler[spielerfolge].treffer = spieler[spielerfolge].treffer +
+                                                check_hit(spieler[spielerfolge].trefferFeld,
+                                                          spieler[spielerfolge - 1].feld, row, col);
+                i= spieler[spielerfolge].treffer;
+                printf("%i von %i Schiffe getroffen\n", i , ships);
+            } else if (spielerfolge == 0) {
+                spieler[spielerfolge].treffer = spieler[spielerfolge].treffer +
+                                                check_hit(spieler[spielerfolge].trefferFeld,
+                                                          spieler[spielerfolge + 1].feld, row, col);
+                i = spieler[spielerfolge].treffer;
+                printf("%i von %i Schiffe getroffen\n", i , ships);
+            }
+
+            print_arr(spieler[spielerfolge].trefferFeld);
+
+            spielerfolge++;
+        }
+    }
+    printf("\nSpiel vorbei es wurden alle schiffe versenkt");
+
     return 0;
 }
