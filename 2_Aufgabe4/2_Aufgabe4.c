@@ -22,7 +22,7 @@ int pqformel(double p, double q, double *x1, double *x2) {
 
     //Nullstellen prüfen
     if (root == 0) {
-        //Ersetze p  durch die Nullstelle um Speicher zu sparen
+        //Ersetze p durch die Nullstelle um Speicher zu sparen
         *x1 = -p / 2;
         anz = 1;
     } else if (root < 0) {

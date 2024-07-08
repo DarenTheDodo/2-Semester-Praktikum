@@ -116,6 +116,7 @@ int main() {
 
     //Starte Spiele
     while (spieler[0].treffer < ships && spieler[1].treffer < ships) {
+
         int spielerfolge = 0;
         while (spielerfolge <= spielerAnz) {
             printf("Treffer Spieler %i\n", spielerfolge + 1);
@@ -128,12 +129,14 @@ int main() {
             printf("\n Spieler %i:\n Y: ", spielerfolge + 1);
             scanf("%i", &col);
 
+            //Abfrage ob treffer auf gegner Feld
             if (spielerfolge == 1) {
                 spieler[spielerfolge].treffer = spieler[spielerfolge].treffer +
                                                 check_hit(spieler[spielerfolge].trefferFeld,
                                                           spieler[spielerfolge - 1].feld, row, col);
                 i= spieler[spielerfolge].treffer;
                 printf("%i von %i Schiffe getroffen\n", i , ships);
+
             } else if (spielerfolge == 0) {
                 spieler[spielerfolge].treffer = spieler[spielerfolge].treffer +
                                                 check_hit(spieler[spielerfolge].trefferFeld,

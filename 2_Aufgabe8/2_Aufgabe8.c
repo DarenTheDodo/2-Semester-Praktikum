@@ -100,7 +100,7 @@ int main(void) {
     int i = 0;
 
     //
-    while(i < 50){
+    while(i < 49){
         einfuegenDavorInListe(liste, i,i);
         //Hochzählen whileschleife
         i++;
