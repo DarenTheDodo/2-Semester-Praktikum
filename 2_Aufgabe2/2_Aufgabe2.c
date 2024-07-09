@@ -31,7 +31,7 @@ int build_structure(char arr[10][10]) {
     return 0;
 }
 
-int fill_array(char arr[10][10]) {
+void fill_array(char arr[10][10]) {
     int row;
     int col;
     for (col = 1; col < 10; col++) {
@@ -39,7 +39,6 @@ int fill_array(char arr[10][10]) {
             arr[col][row] = '.';
         }
     }
-    return 0;
 }
 
 

@@ -85,7 +85,7 @@ void ausgebenPosition(struct Listenelement *liste, int position) {
     }
     // Falls i nicht getroffen wurde bleibt j = 0 und somit wird hier ausgegeben das die stelle nicht existiert.
     if (j==0){
-        printf("%i Position ist leer", position);
+        printf("%i Die Liste ist nicht lang genug: ", position);
     }
 
 }

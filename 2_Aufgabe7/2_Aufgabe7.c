@@ -93,6 +93,7 @@ int main() {
         int anzbuch;
         char *hilfsfeld;
         char *loesungswort;
+        char *blurredword;
 
         hilfsfeld = malloc(sizeof (char)* 100);
         printf("L\x94sungswort eingeben: ");
@@ -101,7 +102,7 @@ int main() {
         loesungswort = malloc(sizeof (char)*(strlen(hilfsfeld)+1));
         strcpy(loesungswort, hilfsfeld);
         anzbuch= strlen(loesungswort);
-
+        free(hilfsfeld);
 
 
 //        //  Set Lösungswort
@@ -120,9 +121,9 @@ int main() {
         // Set hilfswort placerHolder string "____"
 
         for (i = 0; i < anzbuch; i++) {
-            hilfsfeld[i] = '_';
+            blurredword[i] = '_';
         }
-        hilfsfeld[anzbuch]= '\0';
+        blurredword[anzbuch]= '\0';
 
 
         // Set alter
@@ -142,7 +143,7 @@ int main() {
         while (fehler != 12 && richtigGeraten != anzbuch) {
             int treffer = 0;
 
-            printf("%s\n\n", hilfsfeld);
+            printf("%s\n\n", blurredword);
             printf("Eingabe: ");
             scanf(" %c", &eingabe);
             eingabe = tolower(eingabe);
@@ -151,7 +152,7 @@ int main() {
             for (int i = 0; i < anzbuch; i++) {
 
                 if (loesungswort[i] == eingabe) {
-                    hilfsfeld[i] = eingabe;
+                    blurredword[i] = eingabe;
                     loesungswort[i] = '0';
                     treffer++;
                 }
