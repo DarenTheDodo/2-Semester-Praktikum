@@ -2,8 +2,10 @@
 ## Aufgabe 2
     Was bedeutet der Pfeil vom namen auf das erste Feld
     Was für ein Datentyp ist ein Array?
+    Done
 ## Aufgabe 3 
     Zeiger anschauen
+    Done
 ## Aufgabe 4
     X1,X2 ausgeben
     replace *p *q
@@ -20,8 +22,8 @@
 ## Aufgabe 7
     Aufräumen und Variablen eindeutig benennen
     lw anschauen ob nicht durch blurredword ersetzbar
-    done
+    Done
 
 ## Aufgabe 8
     abfangen zu großer positions abfragen
-    done
+    Done
