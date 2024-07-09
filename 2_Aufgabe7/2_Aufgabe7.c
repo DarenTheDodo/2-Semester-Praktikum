@@ -99,9 +99,11 @@ int main() {
         printf("L\x94sungswort eingeben: ");
         scanf(" %s", hilfsfeld);
         fflush(stdin);
-        loesungswort = malloc(sizeof (char)*(strlen(hilfsfeld)+1));
-        strcpy(loesungswort, hilfsfeld);
         anzbuch= strlen(loesungswort);
+
+        loesungswort = malloc(sizeof (char)*(anzbuch+1));
+        blurredword = malloc(sizeof (char)*(anzbuch+1));
+        strcpy(loesungswort, hilfsfeld);
         free(hilfsfeld);
 
 

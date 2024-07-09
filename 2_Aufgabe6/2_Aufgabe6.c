@@ -2,7 +2,7 @@
 
 
 struct Spieler {
-    char feld[10][10];
+    char eigenesfeld[10][10];
     char trefferFeld[10][10];
     int treffer;
 };
@@ -86,8 +86,8 @@ int main() {
 
     int i;
     for (i = 0; i <= spielerAnz; i++) {
-        fill_array(spieler[i].feld);
-        build_structure(spieler[i].feld);
+        fill_array(spieler[i].eigenesfeld);
+        build_structure(spieler[i].eigenesfeld);
         fill_array(spieler[i].trefferFeld);
         build_structure(spieler[i].trefferFeld);
         spieler[i].treffer=0;
@@ -105,8 +105,8 @@ int main() {
             scanf("%i", &col);
 
 
-            place_ship(spieler[spielerfolge].feld, row, col);
-            print_arr(spieler[spielerfolge].feld);
+            place_ship(spieler[spielerfolge].eigenesfeld, row, col);
+            print_arr(spieler[spielerfolge].eigenesfeld);
             spielerfolge++;
         }
         i++;
@@ -133,14 +133,14 @@ int main() {
             if (spielerfolge == 1) {
                 spieler[spielerfolge].treffer = spieler[spielerfolge].treffer +
                                                 check_hit(spieler[spielerfolge].trefferFeld,
-                                                          spieler[spielerfolge - 1].feld, row, col);
+                                                          spieler[spielerfolge - 1].eigenesfeld, row, col);
                 i= spieler[spielerfolge].treffer;
                 printf("%i von %i Schiffe getroffen\n", i , ships);
 
             } else if (spielerfolge == 0) {
                 spieler[spielerfolge].treffer = spieler[spielerfolge].treffer +
                                                 check_hit(spieler[spielerfolge].trefferFeld,
-                                                          spieler[spielerfolge + 1].feld, row, col);
+                                                          spieler[spielerfolge + 1].eigenesfeld, row, col);
                 i = spieler[spielerfolge].treffer;
                 printf("%i von %i Schiffe getroffen\n", i , ships);
             }
